@@ -5,6 +5,9 @@ import bodyParser from "body-parser";
 import cors from 'cors'
 import axios from "axios";
 
+import { Todos } from './Todos.js'
+import { Users } from './Users.js'
+
 async function startServer() {
     const app = express();
     const server = new ApolloServer({
@@ -23,6 +26,7 @@ async function startServer() {
             title: String!
             completed: Boolean
             userId: ID!
+            user: User
         },
         
         type Query {
@@ -33,10 +37,13 @@ async function startServer() {
         
         `,
         resolvers: {
+            Todo: {
+                user: async (todo) => Users.find(e=> e.id == todo.userId), 
+            },
             Query: {
-                getTodos: async()=>  (await axios.get("https://jsonplaceholder.typicode.com/todos")).data,
-                getAllUsers: async()=>  (await axios.get("https://jsonplaceholder.typicode.com/users")).data, 
-                getUser: async(parent, { id })=>  (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)).data, 
+                getTodos: async()=>  Todos,
+                getAllUsers: async()=> Users, 
+                getUser: async(parent, { id })=>  Users.find((e)=> e.id == id), 
             }
         },
     });
