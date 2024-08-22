@@ -38,7 +38,7 @@ const Todo = () => {
     ))
 
     return (
-        <div className="bg-red-100 p-3">
+        <div className=" p-3">
             <input type="search" onChange={e=>setTerm(e.target.value)} className='outline m-auto' />
             <div>{filterTodo}</div>
         </div>
