@@ -1,33 +1,18 @@
-import { ChangeEvent, useEffect, useState } from 'react'
-import io from 'socket.io-client';
-const socket = io('http://localhost:3300');
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomeChat from "./Pages/HomeChat";
+import Header from "./components/Header";
+import Users from "./Pages/Users";
 
 function App() {
 
-  const [myMsg, setMyMsg] = useState("");
-
- function handleMessage(e: ChangeEvent<HTMLInputElement>){
-  setMyMsg(e.target.value);
- }
-
-  const sendMessage = () =>{
-    if(myMsg === "") return;
-    socket.emit("send_message", {message: myMsg})
-
-    setMyMsg("");
-  }
-
-  useEffect(()=>{
-    socket.on("receive_message", (data)=>{
-      alert(data.message);
-    })
-  },[socket]);
-
   return (
-    <>
-      <input type="text" placeholder='Type Message . . . ' value={myMsg} onChange={handleMessage} />
-      <button onClick={sendMessage}>Send Message</button>
-    </>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomeChat />} />
+        <Route path="/users" element={<Users />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

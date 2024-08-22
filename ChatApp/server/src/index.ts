@@ -22,7 +22,6 @@ io.on("connection", (socket) => {
     socket.on("send_message", (data)=> {
         socket.broadcast.emit("receive_message", data);
     })
-
 })
 
 app.get('/', (req: Request, res: Response) => {
