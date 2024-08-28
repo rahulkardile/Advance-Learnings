@@ -1,22 +1,23 @@
-import { kafka } from "./client.js";
+import { kafka } from "./clinet.js";
 
-async function init(params) {
+async function init() {
     const admin = kafka.admin();
-    console.log('Admin is connecting . . . ');
-    admin.connect();
-    console.log('Admin is connection is success . . . ');
 
-    await admin.createTopics({
+    console.log('admin connecting!');
+    admin.connect();
+    console.log('admin connection success!');
+    
+   await admin.createTopics({
         topics: [{
             topic: 'rider-updates',
-            numPartitions: 2,
-        }]
+            numPartitions: 2
+        }], 
     })
 
-    console.log("Topic created success!");
+    console.log('topic created success!');
     await admin.disconnect();
-    console.log("Disconnecting Admin!");
-    
-}
+    console.log('admin disconnected success!');
+
+};
 
 init();
