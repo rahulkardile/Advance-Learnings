@@ -17,7 +17,6 @@ async function init() {
             
         }
     })
-
 }
 
 init();
