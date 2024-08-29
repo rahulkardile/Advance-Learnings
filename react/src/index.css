@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: aqua;
+}
+
+
+.active{
+    color: red;
+}
+
+#head nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-right: 3rem;
+}
+
+#head nav .a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    /* color: black; */
+    font-weight: 600;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
