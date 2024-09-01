@@ -7,16 +7,16 @@ const app = express();
 app.get("/", async (req, res) => {
     try {
 
-        const cacheValue = await redisClient.get("todos");
+        const cacheValue = await redisClient.get("todos:jsonPlacholder");
 
-        if(cacheValue) return res.json(JSON.parse(cacheValue));
+        if (cacheValue) return res.json(JSON.parse(cacheValue));
 
         const { data } = await axios.get("https://jsonplaceholder.typicode.com/todos");
-        await redisClient.set("todos", JSON.stringify(data));
-        await redisClient.expire("todos", 60);
+        await redisClient.set("todos:jsonPlacholder", JSON.stringify(data));
+        await redisClient.expire("todos:jsonPlacholder", 60);
 
         return res.json(data);
-    
+
     } catch (error) {
         res.status(500).json({
             message: error.message,
@@ -25,4 +25,4 @@ app.get("/", async (req, res) => {
     }
 })
 
-app.listen(3000, ()=>console.log('server is running . . . '));
+app.listen(3000, () => console.log('server is running . . . '));
