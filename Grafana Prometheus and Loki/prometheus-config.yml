@@ -1,0 +1,9 @@
+global:
+  scrape_interval: 4s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["<NDOEJS_SERVER_ADDRESS>"]
+    -targets: ["192.168.1.28:8000"]
+ 
