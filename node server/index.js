@@ -1,16 +1,21 @@
 import http from 'http';
+import setCORSHeaders from './utils/cors.js';
 
 const app = http.createServer(async (req, res) => {
-    res.setHeader("Content-Type", "application/json");
+
+    setCORSHeaders(res);
+
+    if (req.method === "OPTIONS") {
+        res.writeHead(204);
+        return res.end();
+    }
 
     if (req.url === "/" && req.method === "GET") {
         res.end(JSON.stringify({ message: "hey how are you buddy!" }));
-    }
+    } 
     else if (req.url === "/user" && req.method === "POST") {
-
         let body = '';
 
-        // collect all data 
         req.on('data', chunk => {
             body += chunk.toString();
         });
@@ -23,20 +28,17 @@ const app = http.createServer(async (req, res) => {
                 res.writeHead(200);
                 res.end(JSON.stringify({ message: "Login success!" }));
                 return;
-            }
-            else{
+            } else {
                 res.writeHead(400);
                 res.end(JSON.stringify({ message: "Username and Password verification failed!" }));
                 return;
             }
-        })
-    }
-
+        });
+    } 
     else {
-        res.writeHead(404);    
-        res.end(JSON.parse({ message: "route not found!" }))
+        res.writeHead(404);
+        res.end(JSON.stringify({ message: "Route not found!" }));
     }
-
 });
 
 app.listen(3000, () => {
