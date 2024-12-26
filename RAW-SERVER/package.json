@@ -4,7 +4,10 @@
   "description": "This is a lightweight and secure Node.js HTTP server implemented in TypeScript. The server provides a foundational structure for handling HTTP requests and responses without relying on external frameworks like Express. It emphasizes clean code, type safety, and robust error handling.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon dist/index.js"
+    "start": "nodemon dist/src/index.js",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "postinstall": "npm run build"
   },
   "author": "rahul kardile",
   "license": "ISC",
