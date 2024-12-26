@@ -1,12 +1,13 @@
-import * as http from 'http';
+import http from 'http';
 
 const app = http.createServer(async (req, res) => {
+    res.setHeader("Content-Type", "application/json");
 
     if (req.url === "/" && req.method === "GET") {
-        res.setHeader("Content-Type", "application/json");
         res.end(JSON.stringify({ message: "hey how are you buddy!" }));
-    } 
-    else if(req.url === "/user" && req.method === "POST"){
+    }
+    else if (req.url === "/user" && req.method === "POST") {
+
         let body = '';
 
         // collect all data 
@@ -14,16 +15,26 @@ const app = http.createServer(async (req, res) => {
             body += chunk.toString();
         });
 
-        req.on("end", ()=>{
+        req.on("end", () => {
             const userDetails = JSON.parse(body);
-            console.log(userDetails);
+            const { username, password } = userDetails;
 
-            res.writeHead(200);
-            res.end(JSON.stringify({ message: "Login success!" }));
-            return;
-
+            if (username === "admin" && password === "admin") {
+                res.writeHead(200);
+                res.end(JSON.stringify({ message: "Login success!" }));
+                return;
+            }
+            else{
+                res.writeHead(400);
+                res.end(JSON.stringify({ message: "Username and Password verification failed!" }));
+                return;
+            }
         })
+    }
 
+    else {
+        res.writeHead(404);    
+        res.end(JSON.parse({ message: "route not found!" }))
     }
 
 });
