@@ -1,5 +1,12 @@
 import http from 'http';
 import setCORSHeaders from './utils/cors.js';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+// Define __dirname for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = http.createServer(async (req, res) => {
 
@@ -11,8 +18,20 @@ const app = http.createServer(async (req, res) => {
     }
 
     if (req.url === "/" && req.method === "GET") {
-        res.end(JSON.stringify({ message: "hey how are you buddy!" }));
-    } 
+        const filePath = path.join(__dirname, 'index.html');
+
+        // Read and serve the HTML file
+        fs.readFile(filePath, 'utf-8', (err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end("Internal Server Error: Unable to read HTML file.");
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(data);
+            }
+        });
+    }
+    
     else if (req.url === "/user" && req.method === "POST") {
         let body = '';
 
@@ -34,7 +53,21 @@ const app = http.createServer(async (req, res) => {
                 return;
             }
         });
-    } 
+    } else if (req.url === "/" && req.method === "GET") {
+        const filePath = path.join(__dirname, 'index.html');
+
+        // Read and serve the HTML file
+        fs.readFile(filePath, 'utf-8', (err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end("Internal Server Error: Unable to read HTML file.");
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(data);
+            }
+        });
+    }
+
     else {
         res.writeHead(404);
         res.end(JSON.stringify({ message: "Route not found!" }));
