@@ -1,0 +1,15 @@
+{
+  "name": "raw-server",
+  "version": "1.0.0",
+  "description": "This is a lightweight and secure Node.js HTTP server implemented in TypeScript. The server provides a foundational structure for handling HTTP requests and responses without relying on external frameworks like Express. It emphasizes clean code, type safety, and robust error handling.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon dist/index.js"
+  },
+  "author": "rahul kardile",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
