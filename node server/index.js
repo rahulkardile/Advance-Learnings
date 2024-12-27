@@ -20,7 +20,6 @@ const app = http.createServer(async (req, res) => {
     if (req.url === "/" && req.method === "GET") {
         const filePath = path.join(__dirname, 'index.html');
 
-        // Read and serve the HTML file
         fs.readFile(filePath, 'utf-8', (err, data) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain' });
@@ -31,7 +30,7 @@ const app = http.createServer(async (req, res) => {
             }
         });
     }
-    
+
     else if (req.url === "/user" && req.method === "POST") {
         let body = '';
 
@@ -53,22 +52,7 @@ const app = http.createServer(async (req, res) => {
                 return;
             }
         });
-    } else if (req.url === "/" && req.method === "GET") {
-        const filePath = path.join(__dirname, 'index.html');
-
-        // Read and serve the HTML file
-        fs.readFile(filePath, 'utf-8', (err, data) => {
-            if (err) {
-                res.writeHead(500, { 'Content-Type': 'text/plain' });
-                res.end("Internal Server Error: Unable to read HTML file.");
-            } else {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(data);
-            }
-        });
-    }
-
-    else {
+    } else {
         res.writeHead(404);
         res.end(JSON.stringify({ message: "Route not found!" }));
     }

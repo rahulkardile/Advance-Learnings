@@ -11,12 +11,12 @@ type QueryParams = {
   [key: string]: any; // Adjust the types as per your needs
 };
 
-const serverOptions: http2.SecureServerOptions = {
-    key: fs.readFileSync(path.join(__dirname, '../../ssl/private-key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, '../../ssl/certificate.pem')),
-    secureProtocol: 'TLS_method',
-    minVersion: 'TLSv1.2',
-};
+// const serverOptions: http2.SecureServerOptions = {
+//     key: fs.readFileSync(path.join(__dirname, '../../ssl/private-key.pem')),
+//     cert: fs.readFileSync(path.join(__dirname, '../../ssl/certificate.pem')),
+//     secureProtocol: 'TLS_method',
+//     minVersion: 'TLSv1.2',
+// };
 
 const parseRequestBody = (
   req: http2.Http2ServerRequest
