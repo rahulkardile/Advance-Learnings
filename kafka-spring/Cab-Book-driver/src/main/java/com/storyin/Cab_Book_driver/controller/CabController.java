@@ -20,16 +20,16 @@ public class CabController {
 
     @PutMapping
     public ResponseEntity updateLocation() {
-        int range = 100;
-        while (range > 0) {
+        try {
+            int range = 100;
+            while (range > 0) {
 //            System.out.println(Math.random() + " , " + Math.random());
-            cabService.updateLocation(Math.random() + " , " + Math.random());
-            try {
+                cabService.updateLocation(Math.random() + " , " + Math.random());
                 Thread.sleep(500);
-            } catch (Exception e) {
-                System.out.println(e);
+                range--;
             }
-            range--;
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
         return new ResponseEntity<>(Map.of("message", "Location is updated"), HttpStatus.CREATED);
