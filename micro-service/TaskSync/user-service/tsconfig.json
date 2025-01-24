@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "outDir": "./dist"
   }
 }
