@@ -1,5 +1,5 @@
 import { Kafka } from 'kafkajs';
-import { TodoCreatedEvent } from '../../../shared/types';
+import { TodoCreatedEvent } from '../shared/types';
 
 const kafka = new Kafka({ brokers: ['localhost:9092'] });
 const producer = kafka.producer();
