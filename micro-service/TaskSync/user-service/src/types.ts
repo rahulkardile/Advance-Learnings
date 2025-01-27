@@ -1,6 +1,7 @@
 export interface CreateUserRequest {
     name: string;
     email: string;
+    username: string;
     password: string;
   }
   
@@ -12,6 +13,7 @@ export interface CreateUserRequest {
   export interface UserResponse {
     id: string;
     name: string;
+    username: string;
     email: string;
   }
   
