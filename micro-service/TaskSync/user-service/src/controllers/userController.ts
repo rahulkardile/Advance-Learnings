@@ -29,7 +29,7 @@ class UserController {
 
   async checkUser(req: Request, res: Response, next: NextFunction) {
     try {
-      const user = await userModel.findOne({ username: req.body.username });
+      const user = await userModel.findOne({ username: req.params.username });
       if (!user) {
         return res.json({ userFind: false, success: false });
       }
