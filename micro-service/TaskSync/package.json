@@ -1,0 +1,24 @@
+{
+  "name": "tasksync",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch:notification": "cd notification-service && npm run watch",
+    "watch:todo-service": "cd todo-service && npm run watch",
+    "watch:user-service": "cd user-service && npm run watch",
+    
+    "watch": "concurrently \"npm run watch:notification\" \"npm run watch:todo-service\" \"npm run watch:user-service\"",
+    
+    "dev:notification": "cd notification-service && nodemon dist/index.js",
+    "dev:todo-service": "cd todo-service && nodemon dist/index.js",
+    "dev:user-service": "cd user-service && nodemon dist/index.js",
+    "dev": "concurrently \"npm run dev:notification\" \"npm run dev:todo-service\" \"npm run dev:user-service\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
