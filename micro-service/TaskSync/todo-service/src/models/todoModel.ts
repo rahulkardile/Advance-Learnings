@@ -1,10 +1,14 @@
-import mongoose from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
+import { TodoDocument } from '../shared/types';
 
-const TodoSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  userId: { type: String, required: true },
+
+const todoSchema = new Schema<TodoDocument>({
+  title: { type: String, required: true, unique: true },
+  description: { type: String },
   completed: { type: Boolean, default: false },
+  username: { type: String, ref: 'User', required: true }, // Reference to User document
 });
 
-export default mongoose.model('Todo', TodoSchema);
+const Todo = model<TodoDocument>('Todo', todoSchema);
 
+export default Todo;

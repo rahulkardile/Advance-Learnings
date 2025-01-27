@@ -12,4 +12,3 @@ export const publishTodoCreated = async (todo: TodoCreatedEvent['payload']) => {
   });
   await producer.disconnect();
 };
-

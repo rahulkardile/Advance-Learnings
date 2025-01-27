@@ -4,15 +4,15 @@ export interface User {
   email: string;
 }
 
-export interface Todo {
-  id: string;
+export interface TodoDocument extends Document {
   title: string;
-  userId: string;
+  description?: string;
   completed: boolean;
+  username: string; 
 }
 
 export interface TodoCreatedEvent {
   type: 'TODO_CREATED';
-  payload: Todo;
+  payload: TodoDocument;
 }
 
