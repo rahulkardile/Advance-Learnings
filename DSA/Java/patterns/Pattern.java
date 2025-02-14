@@ -1,4 +1,4 @@
-package patterns;
+package Java.patterns;
 
 public class Pattern {
 
