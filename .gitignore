@@ -15,6 +15,7 @@ uploads
 dist-ssr
 *.local
 dist
+.vscode/launch.json
 
 # Editor directories and files
 .vscode/*
@@ -27,3 +28,42 @@ dist
 *.sln
 *.sw?
 .zip
+To ignore the compiled C++ executable files in your Git repository, follow these steps:  
+
+### **1. Open/Create `.gitignore` File**  
+If your project doesn’t have a `.gitignore` file, create one in the root of your repository:  
+
+```bash
+touch .gitignore
+```
+
+### **2. Add These Entries to `.gitignore`**  
+Open the `.gitignore` file in a text editor and add the following lines:
+
+```gitignore
+# Ignore compiled C++ executables (no extension)
+Pattern
+
+# Ignore all executable files in the project (no extension)
+*
+
+# Ignore specific extensions (like .out)
+*.out
+
+# Ignore all compiled C++ binaries in the current folder
+*.exe
+*.o
+*.out
+*.bin
+```
+
+### **3. Save and Apply**
+If you have already committed the compiled files, remove them from Git tracking:  
+
+```bash
+git rm --cached Pattern
+git commit -m "Removed compiled files from tracking"
+```
+
+Now, Git will ignore all C++ compiled executables in future commits. 🚀 Let me know if you need further clarification!
+*
