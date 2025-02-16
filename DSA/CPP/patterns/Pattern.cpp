@@ -73,6 +73,12 @@ void print5(int n){
     }
 }
 
+//      *     
+//     ***    
+//    *****   
+//   *******  
+//  ********* 
+// ***********
 void print6(int n){
     for(int i = 0; i< n; i++){
        // spaces 
@@ -95,13 +101,42 @@ void print6(int n){
     }
 }
 
+// ***********
+//  ********* 
+//   *******  
+//    *****   
+//     ***    
+//      *     
+
+void print7(int n){
+    for(int i = 0; i< n; i++){
+        // spaces 
+         for (int j = 0; j < i; j++)
+         {
+             cout << " ";
+         }
+ 
+        // stars 
+         for(int j = 0; j < 2 * n - (2 * i + 1); j++){
+             cout << "*";
+         }
+ 
+        // spaces
+         for (int j = 0; j < i; j++)
+         {
+             cout << " ";
+         }
+         cout << endl;
+     }
+}
+
 int main() {
     //  compile it throw cmd : g++ CPP/patterns/Pattern.cpp  -o program 
     //  run ./program 
 
     int n = 6;
 
-    print6(n);
+    print7(n);
     return 0;
 
 }

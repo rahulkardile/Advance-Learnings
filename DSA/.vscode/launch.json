@@ -17,5 +17,14 @@
         "isDefault": true
       }
     }
+  ],
+  "configurations": [
+    {
+      "type": "java",
+      "name": "BasicMath",
+      "request": "launch",
+      "mainClass": "Java.basicProblem.BasicMath",
+      "projectName": "DSA_51841d9d"
+    }
   ]
 }
