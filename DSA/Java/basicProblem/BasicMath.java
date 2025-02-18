@@ -5,6 +5,7 @@ public class BasicMath {
     public static int countDigit(int n){
         int count = 0;
         while(n > 0){
+            // making number positive
             count++;
             n = n / 10;
         }
@@ -24,6 +25,7 @@ public class BasicMath {
             reversNum = (reversNum * 10) + lastDigit;
         }
         if(negetive){
+            // making number negetive
             reversNum = -reversNum;
         }
         return reversNum;
