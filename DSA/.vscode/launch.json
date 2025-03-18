@@ -21,6 +21,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Sample",
+      "request": "launch",
+      "mainClass": "recursion.Sample",
+      "projectName": "DSA_eac0118"
+    },
+    {
+      "type": "java",
+      "name": "BasicMath",
+      "request": "launch",
+      "mainClass": "basicProblem.BasicMath",
+      "projectName": "DSA_eac0118"
+    },
+    {
+      "type": "java",
       "name": "BasicMath",
       "request": "launch",
       "mainClass": "Java.basicProblem.BasicMath",
