@@ -40,13 +40,6 @@ touch .gitignore
 ### **2. Add These Entries to `.gitignore`**  
 Open the `.gitignore` file in a text editor and add the following lines:
 
-```gitignore
-# Ignore compiled C++ executables (no extension)
-Pattern
-
-# Ignore all executable files in the project (no extension)
-*
-
 # Ignore specific extensions (like .out)
 *.out
 
@@ -55,15 +48,3 @@ Pattern
 *.o
 *.out
 *.bin
-```
-
-### **3. Save and Apply**
-If you have already committed the compiled files, remove them from Git tracking:  
-
-```bash
-git rm --cached Pattern
-git commit -m "Removed compiled files from tracking"
-```
-
-Now, Git will ignore all C++ compiled executables in future commits. 🚀 Let me know if you need further clarification!
-*
