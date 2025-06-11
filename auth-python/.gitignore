@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Flask-related
+instance/
+*.db
+*.sqlite3
+
+# VSCode settings (optional)
+.vscode/
+
+# macOS
+.DS_Store
+
+# Pytest cache
+.pytest_cache/
+
+# Logs
+*.log
+
+# IDEs
+.idea/
+*.swp
+
+# Environment variables (if you use dotenv)
+.env
+
+# Compiled files
+*.so
+*.egg
+*.egg-info/
+
+# Mongo dump files
+dump/
