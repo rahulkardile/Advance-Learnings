@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 export default function Index() {
   return (
     <View className="flex-1 justify-center items-center bg-blue-50">
-      <Text className="text-2xl font-bold text-blue-800">Welcome to Moviefy!</Text>
+      <Text className="text-2xl font-bold text-primary ">Welcome to Moviefy!</Text>
     </View>
   );
 }
