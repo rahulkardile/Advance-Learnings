@@ -6,12 +6,14 @@ export function TabBarIcon({ title, icon, focused }: { title: string, icon: any,
         return (
             <ImageBackground
                 source={images.highlight}
-                className='flex flex-row w-full flex-1 min-w-[120px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden'
+                className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 mt-4 justify-center items-center rounded-full overflow-hidden"
             >
-                <Image source={icon} tintColor="#151312" className='size-5' />
-                <Text className='text-secondary text-base font-semibold ml-2'>{title}</Text>
+                <Image source={icon} tintColor="#151312" className="size-5" />
+                <Text className="text-secondary text-base font-semibold ml-2">
+                    {title}
+                </Text>
             </ImageBackground>
-        )
+        );
     }
 
     return (
